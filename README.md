@@ -34,7 +34,7 @@ programmers의 과제 테스트는 코드를 제출하면 자동으로 서버를
     실행 및 제출 전 다음 명령어로 패키지 종속성 파일을 작성해야 합니다. 자세한 내용은 [여기](https://pip.pypa.io/en/stable/user_guide/#requirements-files)을 확인해주세요.
 
     ```shell
-  (env) $ pip freeze > requirements.txt
+    (env) $ pip freeze > requirements.txt
     ```
     
   - Pipfile
@@ -42,7 +42,7 @@ programmers의 과제 테스트는 코드를 제출하면 자동으로 서버를
     서버 프로세스를 실행하기 위한 `web` 진입 명령어와 DB 마이그레이션을 위한 `migrate` 가 정의되어 있어야 합니다.
 
     ```
-  web: gunicorn mysite.wsgi --log-file -
+    web: gunicorn mysite.wsgi --log-file -
     migrate: python manage.py migrate --settings=myapp.settings.production
     ```
   
