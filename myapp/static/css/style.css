@@ -33,7 +33,7 @@ body {
   
   /* Set all odd list items to a different color (zebra-stripes) */
   ul li:nth-child(odd) {
-    background: #f9f9f9;
+    background: #f9f9f993;
   }
   
   /* Darker background-color on hover */
@@ -60,6 +60,43 @@ body {
     transform: rotate(45deg);
     height: 15px;
     width: 7px;
+  }
+
+  ul li.TableIndex{
+    background: darkorange;
+  }
+
+  /* Style the Priority Flags */
+  .PriorityFlag {
+    position: absolute;
+    right: 550px;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+
+  /* Style the TimesUp */
+  .TimesUp {
+    background: #cf5712ec;
+    position: absolute;
+    right: 350px;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+
+  /* Style the Remaining Days */
+  .RemainingDays {
+    position: absolute;
+    right: 350px;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+  }
+
+  /* Style the Due Date */
+  .DueDate {
+    position: absolute;
+    right: 180px;
+    top: 0;
+    padding: 12px 16px 12px 16px;
   }
 
   /* Style the modify button */
@@ -128,7 +165,6 @@ body {
   .addBtn:hover {
     background-color: #bbb;
   }
-  
   
   ul li a{
     text-decoration: none;

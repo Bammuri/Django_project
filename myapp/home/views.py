@@ -1,9 +1,10 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from myapp.todo.models import Todo
+from django.db.models import F
 from .forms import TodoForm 
 # Create your views here.
 def index(request):
-    queryset = Todo.objects.all()
+    queryset = Todo.objects.all().order_by('-priority_flag',F('dueDate').desc(nulls_last=True),'done')
     form = TodoForm(request.POST)
     if form.is_valid():
         instance = form.save(commit=False)

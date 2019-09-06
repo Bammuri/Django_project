@@ -5,6 +5,7 @@
     <title>To Do List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load staticfiles %}
+
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 
@@ -12,25 +13,41 @@
 
     <div id="myDIV" class="header">
         <h2 style="margin:5px">HYUNJUN TO DO List</h2>
-        <h3 style="margin:5px">if you complete the TO DO, click it</h3>
+        <h3 style="margin:5px">If you complete the TO DO, Click its Title</h3>
+        <h3 style="margin:5px">It is {% now "DATE_FORMAT" %}</h3>
         <form method="post">
-            {% csrf_token %}
-            {{form.text}}{{form.content}}
-        <button class="addBtn" type="submit">Add</button>
+            <li>{% csrf_token %}
+                {{form.text}}{{form.content}}{{form.dueDate}} priority_flag {{form.priority_flag}}
+                <br>NOT CHOOSE = 0, LOW = 1, NORMAL = 2, HIGH = 3</li>
+            <button class="addBtn" type="submit">Add</button>
         </form>
     </div>
 
     <ul id="myUL">
+        <li class=TableIndex><b>Title</b><br><b>Content</b>
+            <span class="PriorityFlag"><b>Priority_flag</b></span>
+            <span class="RemainingDays"><b>RemainingDays</b></span>
+            <span class="DueDate"><b>Due Date</b></span></li>
+        {% now "Y-m-d" as todays_date %}
         {% for obj in queryset %}
+        {% if  obj.dueDate|date:"Y-m-d" != '' and todays_date >= obj.dueDate|date:"Y-m-d" %}
+        <li>{{obj.text}} <br> {{obj.content}}</a>
+            <span class="TimesUp"><b>Times up!!</b></span>
+            <span class="DueDate">{{ obj.dueDate|date:"D d M Y" }}</span>
+            <a href="{% url 'delete' obj.id %}"><span class="close">delete</span></a></li>
+        {% else %}
         {% if obj.done %}
         <li class="checked"><a href="{% url 'NotDone' obj.id%}">{{obj.text}} <br> {{obj.content}}</a>
             <a href="{% url 'delete' obj.id %}"><span class="close">delete</span></a></li>
         {% else %}
-        <li><a href="{% url 'Done' obj.id%}">{{obj.text}} <br> {{obj.content}}</a> 
-            <a href="{% url 'modify' obj.id %}"><span class="modify">modify</span></a> 
+        <li><a href="{% url 'Done' obj.id%}">{{obj.text}} <br> {{obj.content}}</a>
+            <span class="PriorityFlag">{{ obj.priority_flag }}</span>
+            <span class="RemainingDays">{{ obj.dueDate|timeuntil }}</span>
+            <span class="DueDate">{{ obj.dueDate|date:"D d M Y" }}</span>
+            <a href="{% url 'modify' obj.id %}"><span class="modify">modify</span></a>
             <a href="{% url 'delete' obj.id %}"><span class="close">delete</span></a></li>
         {% endif %}
-
+        {% endif %}
         {% endfor %}
     </ul>
 

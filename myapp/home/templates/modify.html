@@ -9,16 +9,15 @@
 </head>
 
 <body>
-
-        <div id="myDIV" class="header">
-            <h2 style="margin:5px">Modify TO DO List</h2>
-            <form method="post">
-               {% csrf_token %}
-                {{form.text}}{{form.content}}
+    <div id="myDIV" class="header">
+        <h2 style="margin:5px">Modify TO DO List</h2>
+        <form method="post">
+            <li>{% csrf_token %}
+                {{form.text}}{{form.content}}{{form.dueDate}} priority_flag {{form.priority_flag}}
+                <br>NOT CHOOSE = 0, LOW = 1, NORMAL = 2, HIGH = 3</li>
             <button class="addBtn" type="submit">Modify</button>
-            </form>
-        </div>
-    
+        </form>
+    </div>
 </body>
 
 </html>
