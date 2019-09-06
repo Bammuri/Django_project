@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+        <div id="myDIV" class="header">
+            <h2 style="margin:5px">Modify TO DO List</h2>
+            <form method="post">
+               {% csrf_token %}
+                {{form.text}}{{form.content}}
+            <button class="addBtn" type="submit">Modify</button>
+            </form>
+        </div>
+    
+</body>
+
+</html>

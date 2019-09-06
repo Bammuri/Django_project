@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from myapp.todo.models import Todo
 from .forms import TodoForm 
 # Create your views here.
@@ -27,7 +27,20 @@ def NotDone(request,id):
 	query.save()
 	return redirect('index')
 
-def delete(request,id):
+def Delete(request,id):
 	query = Todo.objects.get(id=id)
 	query.delete()
 	return redirect('index')
+
+def Modify(request,id):
+    post = get_object_or_404(Todo,id=id)
+    
+    if request.method == 'POST':
+        form = TodoForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = TodoForm(instance=post)
+    
+    return render(request, 'modify.html', {'form':form})

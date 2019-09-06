@@ -22,5 +22,6 @@ urlpatterns = [
     path(r'', views.index,name='index'),
     path('done/<id>', views.Done,name='Done'),
     path('notdone/<id>', views.NotDone,name='NotDone'),
-    path('delete/<id>', views.delete,name='delete'),
+    path('delete/<id>', views.Delete,name='delete'),
+    path('modify/<id>', views.Modify,name='modify'),
 ]
