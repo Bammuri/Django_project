@@ -1,6 +1,7 @@
-﻿## Django를 이용해 TO DO LIST를 구현하였습니다.
+## Django를 이용해 TO DO LIST를 구현하였습니다.
+![TODOLIST_완성1](https://user-images.githubusercontent.com/28779618/67914834-9f8d8000-fbd4-11e9-8d13-4443dccd440b.png)
 
-### 기능 요구사항:
+### 기능사항:
 - 새로운 TODO(제목과 내용)를 작성할 수 있다.
 - TODO 목록을 볼 수 있다.
 - TODO 항목의 제목과 내용을 수정할 수 있다.
@@ -16,7 +17,6 @@
 - 인터페이스 요구사항:
 - 직관적이고 의미 전달이 명확한 화면을 사용자에게 제공한다.
 
-![TODOLIST_완성](https://user-images.githubusercontent.com/28779618/67913367-27bd5680-fbd0-11e9-8811-806f890400f0.jpg)
 
 # programmers 과제 테스트 템플릿 - Django
 
