@@ -16,6 +16,7 @@
 - 인터페이스 요구사항:
 - 직관적이고 의미 전달이 명확한 화면을 사용자에게 제공한다.
 
+![TODOLIST_완성](https://user-images.githubusercontent.com/28779618/67913367-27bd5680-fbd0-11e9-8811-806f890400f0.jpg)
 
 # programmers 과제 테스트 템플릿 - Django
 
